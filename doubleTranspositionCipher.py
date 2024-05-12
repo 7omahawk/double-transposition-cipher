@@ -2,7 +2,7 @@
 
 import sys
 import math
-
+ 
 # this function is for encryption steps 
 def encryptionLoop(key, userInput):
     userInput = userInput.replace(" ","")    # excluding space from the sentence
@@ -56,6 +56,7 @@ def encryption(key, userInput):
     print(f"The encrypted message is: {cipher}")
 
 
+# this function is for decryption steps 
 def decryptionLoop(key, userInput):
 
     sizeOfKey = len(str(key))   # column size
@@ -89,6 +90,7 @@ def decryptionLoop(key, userInput):
     return plaintext
 
 
+# main decryption function
 def decryption(key, userInput):
 
     plaintext = decryptionLoop(key, userInput)   # single decryption plaintext
