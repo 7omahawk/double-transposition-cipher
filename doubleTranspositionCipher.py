@@ -2,7 +2,22 @@
 
 import sys
 import math
- 
+import os
+
+
+design = """
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++     ___            _     _        _____                                     _ _   _                 ___ _       _                +
++    /   \___  _   _| |__ | | ___  /__   \_ __ __ _ _ __  ___ _ __   ___  ___(_) |_(_) ___  _ __     / __(_)_ __ | |__   ___ _ __  +
++   / /\ / _ \| | | | '_ \| |/ _ \   / /\/ '__/ _` | '_ \/ __| '_ \ / _ \/ __| | __| |/ _ \| '_ \   / /  | | '_ \| '_ \ / _ \ '__| +
++  / /_// (_) | |_| | |_) | |  __/  / /  | | | (_| | | | \__ \ |_) | (_) \__ \ | |_| | (_) | | | | / /___| | |_) | | | |  __/ |    +
++ /___,' \___/ \__,_|_.__/|_|\___|  \/   |_|  \__,_|_| |_|___/ .__/ \___/|___/_|\__|_|\___/|_| |_| \____/|_| .__/|_| |_|\___|_|    +
++                                                            |_|                                           |_|                     +
++                                                                                                                  -By 7omahawk    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+
+
 # this function is for encryption steps 
 def encryptionLoop(key, userInput):
     userInput = userInput.replace(" ","")    # excluding space from the sentence
@@ -106,6 +121,7 @@ def decryption(key, userInput):
 
 
 while(True):
+    print(design)
     print("Enter your choice(Number): ")
     print("1. Encryption: ")
     print("2. Decryption: ")
@@ -115,8 +131,8 @@ while(True):
 
     def choice(number):
         if number == 1:
-            userInput = input("Enter your text to encrypt: ")
-            key = int(input("Enter the key: "))
+            userInput = input("Enter your text to encrypt (A-Z): ")
+            key = int(input("Enter the key (ex. 24315): "))
             userInput = userInput.lower()
             encryption(key, userInput)
 
@@ -125,8 +141,8 @@ while(True):
             global inputSize   # this is the global variable
             inputSize = sizeOfInput
         elif number == 2:
-            userInput = input("Enter your text to decrypt: ")
-            key = int(input("Enter the key: "))
+            userInput = input("Enter your text to decrypt (A-Z): ")
+            key = int(input("Enter the key (ex. 24315): "))
             userInput = userInput.lower()
             decryption(key, userInput)
         elif number == 3:
@@ -135,3 +151,6 @@ while(True):
             print("Input should be a number from 1 to 3")
 
     choice(number) 
+
+    input()             # press enter to clear screen
+    os.system('clear')  # clear screen
